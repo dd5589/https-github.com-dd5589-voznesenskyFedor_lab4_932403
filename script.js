@@ -1,5 +1,5 @@
 const username = prompt("Как вас зовут?")
-if(username){alert("Привет! " + username+" Посмотри статистику фото!");}else{alert("Привет, аноним!");}
+if(username){alert("Привет, " + username+"!"+" Посмотри статистику фото!");}else{alert("Привет, аноним!");}
 const photos =[120,200,170,420,50,220];
 console.log("Весь массив ",photos);
 console.log("Длина массива ",photos.length);
@@ -33,6 +33,12 @@ function getLowActiv(arr, threshold) {
     }
     return result;
 }
+function calculateAverage(arr) {
+  if (arr.length === 0) return 0;
+  return sumArray(arr) / arr.length;
+}
+const avgPhotos = calculateAverage(photos);
+console.log('Среднее количество фото за день:', avgPhotos.toFixed(1));
 const highDays = filterHighActiv(photos, 200);
 const lowDays = getLowActiv(photos, 50);
 console.log("Дни с высокой активностью (>200):", highDays);
